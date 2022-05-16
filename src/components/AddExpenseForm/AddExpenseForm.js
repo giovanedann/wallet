@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addExpense, updateValue, doneEditing, resetEditStat } from '../../actions';
+import './AddExpenseForm.css';
 
 const INITIAL_EXPENSE_STATE = {
   value: 0,

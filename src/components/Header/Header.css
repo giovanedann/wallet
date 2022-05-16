@@ -1,0 +1,53 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+  padding: 5px;
+  background-color: rgb(48,143,255);
+}
+
+.header-container * {
+  font-size: 17px;
+  color: white;
+  font-weight: 500;
+}
+
+.email-field {
+  margin-left: 10px;
+}
+
+.expenses-value-info {
+  display: flex;
+  width: 180px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 30px;
+  gap: 10px;
+  margin-right: 20px;
+  transition: 0.3s ease-in-out;
+}
+
+.expenses-value-info:hover {
+  transform: scale(1.03);
+}
+
+.expenses-value-info p {
+  color: rgb(48,143,255);
+}
+
+@media screen and (max-width: 500px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+  }
+
+  .expenses-value-info {
+    justify-content: flex-start;
+    margin-left: 10px;
+  }
+}

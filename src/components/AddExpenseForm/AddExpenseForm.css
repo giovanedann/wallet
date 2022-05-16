@@ -1,30 +1,47 @@
 .wallet__form-container {
-  margin: 10px 0;
   display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
   gap: 12px;
+  margin-top: 4rem;
 }
 
 .wallet__form-container form {
   display: flex;
   gap: 10px;
-  
+  padding: 30px;
+  border-radius: 10px;
+  -webkit-box-shadow: 7px 5px 15px 5px rgba(79,79,79,0.31); 
+  box-shadow: 7px 5px 15px 5px rgba(79,79,79,0.31);
 }
 
 .wallet__form-container form label input {
   margin-left: 8px;
   height: 25px;
   border: 1px solid rgb(224, 224, 224);
-  border-left: 3px solid rgb(48,143,255); 
+  border-left: 3px solid #308FFF; 
   border-radius: 5px;
   padding-left: 5px;
+  transition: 0.2s ease-in-out;
 }
 
 .wallet__form-container form label select {
   margin-left: 8px;
   font-family: poppins, sans-serif;
+  height: 25px;
+  background-color: white;
+  border: 1px solid rgb(170, 170, 170);
+  border-left: 2px solid #308FFF;
+  border-radius: 5px;
+  transition: 0.2s ease-in-out;
+}
+
+.wallet__form-container form label > input:focus, select:focus {
+  transform: translateY(-5px);
+  border: 1px solid rgb(48,143,255);
+  border-left: 3px solid rgb(48,143,255);
+  outline: none;
 }
 
 .wallet__form-container form button {

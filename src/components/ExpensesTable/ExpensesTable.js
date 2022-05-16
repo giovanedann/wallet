@@ -3,17 +3,18 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { deleteExpense, updateValue, setEdit } from '../../actions';
 import './ExpensesTable.css';
+import { FaTrash, FaEdit } from 'react-icons/fa'
 
 const tableHeaders = [
-  'Descrição',
-  'Tag',
-  'Método de pagamento',
-  'Valor',
-  'Moeda',
-  'Câmbio utilizado',
-  'Valor convertido',
-  'Moeda de conversão',
-  'Editar/Excluir',
+  'Description',
+  'Category',
+  'Pay method',
+  'Value',
+  'Currency',
+  'Exchange',
+  'Converted value',
+  'Converted to',
+  'Edit/Delete',
 ];
 
 class ExpensesTable extends Component {
@@ -44,8 +45,8 @@ class ExpensesTable extends Component {
   render() {
     const { expenses } = this.props;
     return (
-      <main>
-        <table style={ { marginTop: '30px' } }>
+      <main className="expenses-table-container">
+        <table style={ { marginTop: '30px' } } className="expenses-table">
 
           <thead>
             <tr>
@@ -86,20 +87,20 @@ class ExpensesTable extends Component {
                   </td>
                   <td>Real</td>
                   <td>
-                    <button
-                      type="button"
+                    <FaTrash
                       onClick={ () => this.handleDel({ id, description }) }
                       data-testid="delete-btn"
-                    >
-                      Deletar
-                    </button>
-                    <button
-                      type="button"
+                      color="#FA0D00"
+                      size={ 22 }
+                      className="icons"
+                    />
+                    <FaEdit
                       onClick={ () => this.handleEdit({ id, description }) }
                       data-testid="edit-btn"
-                    >
-                      Editar
-                    </button>
+                      color="#FD5F0D"
+                      size={ 22 }
+                      className="icons"
+                    />
                   </td>
                 </tr>
             ),

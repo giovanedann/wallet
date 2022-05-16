@@ -75,3 +75,8 @@
   transform: scale(1.2);
   opacity: 0.75
 }
+
+.icons-no-anim {
+  width: 30px;
+  height: 30px;
+}

@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import { deleteExpense, updateValue, setEdit } from '../../actions';
 import './ExpensesTable.css';
 import { FaTrash, FaEdit } from 'react-icons/fa'
+import { GiMoneyStack, GiCommercialAirplane, GiHealthNormal, GiPayMoney } from 'react-icons/gi';
+import { BsCreditCard2Back, BsCreditCard2BackFill, BsHandbagFill } from 'react-icons/bs';
+import { IoFastFoodOutline } from 'react-icons/io5';
 
 const tableHeaders = [
   'Description',
@@ -16,6 +19,17 @@ const tableHeaders = [
   'Converted to',
   'Edit/Delete',
 ];
+
+const icons = {
+  cash: <GiMoneyStack className="icons-no-anim" color="#489902"/>,
+  credit: <BsCreditCard2Back className="icons-no-anim" color="#489902" />,
+  debit: <BsCreditCard2BackFill className="icons-no-anim" color="#489902"/>,
+  food: <IoFastFoodOutline className="icons-no-anim" color="#20B2E8"/>,
+  health: <GiHealthNormal className="icons-no-anim" color="#20B2E8"/>,
+  transport: <GiCommercialAirplane className="icons-no-anim" color="#20B2E8"/>,
+  work: <BsHandbagFill className="icons-no-anim" color="#20B2E8"/>,
+  others: <GiPayMoney className="icons-no-anim" color="#20B2E8"/>,
+}
 
 class ExpensesTable extends Component {
   constructor() {
@@ -69,8 +83,8 @@ class ExpensesTable extends Component {
             }) => (
                 <tr key={ description + id }>
                   <td>{description}</td>
-                  <td>{tag}</td>
-                  <td>{method}</td>
+                  <td>{icons[tag.toLowerCase()]}</td>
+                  <td>{icons[method.split(' ')[0].toLowerCase()]}</td>
                   <td>{Number(value)}</td>
                   <td>
                     {this.queryCurrency(exchangeRates, currency, 'name').split('/')[0]}
@@ -87,17 +101,17 @@ class ExpensesTable extends Component {
                   </td>
                   <td>Real</td>
                   <td>
-                    <FaTrash
-                      onClick={ () => this.handleDel({ id, description }) }
-                      data-testid="delete-btn"
-                      color="#FA0D00"
-                      size={ 22 }
-                      className="icons"
-                    />
                     <FaEdit
                       onClick={ () => this.handleEdit({ id, description }) }
                       data-testid="edit-btn"
-                      color="#FD5F0D"
+                      color="#20B2E8"
+                      size={ 22 }
+                      className="icons"
+                    />
+                    <FaTrash
+                      onClick={ () => this.handleDel({ id, description }) }
+                      data-testid="delete-btn"
+                      color="#20B2E8"
                       size={ 22 }
                       className="icons"
                     />

@@ -1,0 +1,48 @@
+.wallet__form-container {
+  margin: 10px 0;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.wallet__form-container form {
+  display: flex;
+  gap: 10px;
+  
+}
+
+.wallet__form-container form label input {
+  margin-left: 8px;
+  height: 25px;
+  border: 1px solid rgb(224, 224, 224);
+  border-left: 3px solid rgb(48,143,255); 
+  border-radius: 5px;
+  padding-left: 5px;
+}
+
+.wallet__form-container form label select {
+  margin-left: 8px;
+  font-family: poppins, sans-serif;
+}
+
+.wallet__form-container form button {
+  font-family: poppins, sans-serif;
+  color: #308FFF;
+  background-color: white;
+  font-weight: 600;
+  border: 2px solid #308FFF;
+  border-radius: 5px;
+  width: 130px;
+  margin-left: 20px;
+  height: 30px;
+  transition: 0.15s ease-in-out;
+}
+
+.wallet__form-container form button:hover {
+  background-color: #308FFF;
+  color: white;
+  cursor: pointer;
+  transform: scale(1.1)
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { deleteExpense, updateValue, setEdit } from '../../actions';
+import './ExpensesTable.css';
 
 const tableHeaders = [
   'Descrição',
@@ -43,65 +44,70 @@ class ExpensesTable extends Component {
   render() {
     const { expenses } = this.props;
     return (
-      <table style={ { marginTop: '30px' } }>
-        <thead>
-          <tr>
-            {tableHeaders.map((item) => (
-              <th key={ item }>{item}</th>
-            ))}
-          </tr>
-        </thead>
-        {expenses.map(
-          ({
-            tag,
-            currency,
-            exchangeRates,
-            description,
-            method,
-            value,
-            id,
-          }, index) => (
-            <tbody key={ index }>
-              <tr key={ description + id }>
-                <td>{description}</td>
-                <td>{tag}</td>
-                <td>{method}</td>
-                <td>{Number(value)}</td>
-                <td>
-                  {this.queryCurrency(exchangeRates, currency, 'name').split('/')[0]}
-                </td>
-                <td>
-                  {Number(this.queryCurrency(exchangeRates, currency, 'ask')).toFixed(2)}
-                </td>
-                <td>
-                  {
-                    (Number(value)
-                      * Number(this.queryCurrency(exchangeRates, currency, 'ask')))
-                      .toFixed(2)
-                  }
-                </td>
-                <td>Real</td>
-                <td>
-                  <button
-                    type="button"
-                    onClick={ () => this.handleDel({ id, description }) }
-                    data-testid="delete-btn"
-                  >
-                    Deletar
-                  </button>
-                  <button
-                    type="button"
-                    onClick={ () => this.handleEdit({ id, description }) }
-                    data-testid="edit-btn"
-                  >
-                    Editar
-                  </button>
-                </td>
-              </tr>
+      <main>
+        <table style={ { marginTop: '30px' } }>
+
+          <thead>
+            <tr>
+              {tableHeaders.map((item) => (
+                <th key={ item }>{item}</th>
+              ))}
+            </tr>
+          </thead>
+          
+          <tbody>
+          {expenses.map(
+            ({
+              tag,
+              currency,
+              exchangeRates,
+              description,
+              method,
+              value,
+              id,
+            }) => (
+                <tr key={ description + id }>
+                  <td>{description}</td>
+                  <td>{tag}</td>
+                  <td>{method}</td>
+                  <td>{Number(value)}</td>
+                  <td>
+                    {this.queryCurrency(exchangeRates, currency, 'name').split('/')[0]}
+                  </td>
+                  <td>
+                    {Number(this.queryCurrency(exchangeRates, currency, 'ask')).toFixed(2)}
+                  </td>
+                  <td>
+                    {
+                      (Number(value)
+                        * Number(this.queryCurrency(exchangeRates, currency, 'ask')))
+                        .toFixed(2)
+                    }
+                  </td>
+                  <td>Real</td>
+                  <td>
+                    <button
+                      type="button"
+                      onClick={ () => this.handleDel({ id, description }) }
+                      data-testid="delete-btn"
+                    >
+                      Deletar
+                    </button>
+                    <button
+                      type="button"
+                      onClick={ () => this.handleEdit({ id, description }) }
+                      data-testid="edit-btn"
+                    >
+                      Editar
+                    </button>
+                  </td>
+                </tr>
+            ),
+            )}
             </tbody>
-          ),
-        )}
-      </table>
+
+        </table>
+      </main>
     );
   }
 }

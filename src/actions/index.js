@@ -1,4 +1,3 @@
-// Coloque aqui suas actions
 import { LOGIN } from '../reducers/user';
 import {
   SAVE_CURRENCIES,

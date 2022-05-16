@@ -213,6 +213,12 @@
       align-items: center;
     }
 
+    .inputs-container label > input {
+      margin: 15px 0;
+      width: 90%;
+      height: 20px;
+    }
+
     .input__links p {
       font-size: 14px;
     }

@@ -12,7 +12,7 @@ function App() {
       />
       <Route
         exact
-        path="/wallet"
+        path="/user-wallet"
         component={ (props) => <Wallet { ...props } /> }
       />
     </Switch>

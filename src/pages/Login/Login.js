@@ -111,7 +111,7 @@ class Login extends React.Component {
             </button>
           </div>
         </div>
-        { logged && <Redirect to="/wallet" /> }
+        { logged && <Redirect to="/user-wallet" /> }
       </div>
     );
   }

@@ -11,7 +11,7 @@ const tableHeaders = [
   'Pay method',
   'Value',
   'Currency',
-  'Exchange',
+  'Exchange rate',
   'Converted value',
   'Converted to',
   'Edit/Delete',

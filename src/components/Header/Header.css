@@ -20,8 +20,9 @@
 
 .expenses-value-info {
   display: flex;
-  width: 160px;
+  width: fit-content;
   height: 40px;
+  padding: 0 10px;
   align-items: center;
   justify-content: center;
   background-color: white;

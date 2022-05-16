@@ -57,30 +57,51 @@ class Login extends React.Component {
       <div className="login-page">
         <div className="login-container">
           <div className="title-container">
-            <FaWallet size={ 100 } color="white"/>
+            <FaWallet className="wallet-icon" size={ 100 } color="white"/>
             <p>my<span>wallet</span></p>
             <div className="title-container__small-texts">
               <p>Control your finances with the My Wallet App!</p>
-              <p>Sign in to continue.</p>
+              <p>Sign in or sign up to continue.</p>
+              <p className="rights">
+                Designed by
+                <a href="https://www.linkedin.com/in/giovane-saes-a53b38196/" target="_blank" rel="noreferrer">
+                  Giovane
+                </a>
+                , 2022.
+              </p>
             </div>
           </div>
           <div className="inputs-container">
-            <input
-              type="text"
-              onChange={ this.handleChange }
-              name="email"
-              id="user-email"
-              data-testid="email-input"
-              placeholder="Enter your e-mail"
-            />
-            <input
-              type="password"
-              name="password"
-              onChange={ this.handleChange }
-              id="user-password"
-              data-testid="password-input"
-              placeholder="Enter your password"
-            />
+            <label htmlFor="user-email">
+              E-mail
+              <input
+                type="text"
+                onChange={ this.handleChange }
+                name="email"
+                id="user-email"
+                data-testid="email-input"
+                placeholder="Enter your e-mail"
+              />
+            </label>
+            <label htmlFor="user-password">
+              Password
+              <input
+                type="password"
+                name="password"
+                onChange={ this.handleChange }
+                id="user-password"
+                data-testid="password-input"
+                placeholder="Enter your password"
+              />
+            </label>
+            <div className="input__links">
+              <p onClick={ () => alert('For now, this button just fire this alert') }>
+                Forgot my password
+              </p>
+              <p onClick={ () => alert('For now, this button just fire this alert') }>
+                Sign up
+              </p>
+            </div>
             <button
               type="button"
               onClick={ () => add(email) && this.handleLogIn() }
@@ -90,7 +111,7 @@ class Login extends React.Component {
             </button>
           </div>
         </div>
-        { logged && <Redirect to="/wallet" />}
+        { logged && <Redirect to="/wallet" /> }
       </div>
     );
   }

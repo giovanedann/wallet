@@ -9,8 +9,8 @@ const INITIAL_EXPENSE_STATE = {
   value: 0,
   description: '',
   currency: 'USD',
-  method: 'Dinheiro',
-  tag: 'Alimentação',
+  method: 'Cash',
+  tag: 'Food',
 };
 
 class AddExpenseForm extends Component {
@@ -72,10 +72,10 @@ class AddExpenseForm extends Component {
         <form>
 
           <label htmlFor="expense-value">
-            Valor
+            Value
             <input
               onChange={ this.handleChange }
-              type="text"
+              type="number"
               value={ value }
               name="value"
               id="expense-value"
@@ -84,7 +84,7 @@ class AddExpenseForm extends Component {
           </label>
 
           <label htmlFor="expense-description">
-            Descrição
+            Description
             <input
               onChange={ this.handleChange }
               type="text"
@@ -96,7 +96,7 @@ class AddExpenseForm extends Component {
           </label>
 
           <label htmlFor="expense-currency">
-            Moeda
+            Currency
             <select
               onChange={ this.handleChange }
               value={ currency }
@@ -111,7 +111,7 @@ class AddExpenseForm extends Component {
           </label>
 
           <label htmlFor="expense-pay-method">
-            Método de pagamento
+            Pay method
             <select
               onChange={ this.handleChange }
               value={ method }
@@ -119,7 +119,7 @@ class AddExpenseForm extends Component {
               id="expense-pay-method"
               data-testid="method-input"
             >
-              { ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'].map(
+              { ['Cash', 'Credit card', 'Debit card'].map(
                 (item) => (
                   <option key={ item } value={ item }>{ item }</option>
                 ),
@@ -128,7 +128,7 @@ class AddExpenseForm extends Component {
           </label>
 
           <label htmlFor="expense-category">
-            Tag
+            Category
             <select
               onChange={ this.handleChange }
               value={ tag }
@@ -136,7 +136,7 @@ class AddExpenseForm extends Component {
               id="expense-category"
               data-testid="tag-input"
             >
-              {['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'].map(
+              {['Food', 'Health', 'Work', 'Transport', 'Others'].map(
                 (item) => (
                   <option key={ item } value={ item }>{ item }</option>
                 ),
@@ -150,7 +150,7 @@ class AddExpenseForm extends Component {
               this.isUserEditing() ? this.handleEditClick : this.handleAddClick
             }
           >
-            { this.isUserEditing() ? 'Editar despesa' : 'Adicionar despesa' }
+            { this.isUserEditing() ? 'Edit' : 'Add' }
           </button>
 
         </form>

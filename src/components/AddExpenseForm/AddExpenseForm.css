@@ -38,10 +38,18 @@
 }
 
 .wallet__form-container form label > input:focus, select:focus {
-  transform: translateY(-5px);
-  border: 1px solid rgb(48,143,255);
-  border-left: 3px solid rgb(48,143,255);
+  border: 1px solid #308FFF;
+  border-left: 3px solid #308FFF;
   outline: none;
+}
+
+.wallet__form-container form label > select:focus {
+  border: 1px solid #308FFF;
+  border-left: 3px solid #308FFF;
+}
+
+.wallet__form-container form label > select:active {
+  transform: translateY(-5px);
 }
 
 .wallet__form-container form button {
